@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./response.css">
     <title>Compte à rebours</title>
 </head>
 <body>
     <div class="info">
+        <h2>Choisir une date et une heure</h2>
         <label for="heure">Heure</label>
         <input type="number" name="heure" placeholder="15" max="24" id="heure">
         <label for="minute">Minute</label>
@@ -21,7 +23,12 @@
         <label for="annee">Années</label>
         <input type="number" name="annee" placeholder="15" max="60" id="annee" >
         <input type="button" value="Lancer" onclick="compte_a_rebours()" id="send">   
-        <p id="response"></p>            
+    </div>
+    <div class="response-container">
+        <div class="to_make_commond_style">
+            <p id="response">Hello Word</p>
+            <p id="for_display_completion"> This is a Countdown</p>    
+        </div>        
     </div>
     <div id="compte_a_rebours">
         <noscript>Activer Votre javascript</noscript>
@@ -40,7 +47,6 @@
             var date_actuelle = new Date();
             var date_evenement = new Date(annee,mois-1,jours,heure,minute,seconde,0);
             var total_secondes = (date_evenement - date_actuelle) /1000;
-            var prefixe = "COMPTE A REBOURD";
             if (total_secondes < 0)
                 {
                     prefixe = " Terminé :-";
@@ -54,30 +60,35 @@
                     minutes = Math.floor((total_secondes - ((jours * 60 * 60 * 24 + heures * 60 * 60))) / 60);
                     secondes = Math.floor(total_secondes - ((jours * 60 * 60 * 24 + heures * 60 * 60 + minutes * 60)));
 
-                    var et = "et";
-                    var mot_jour = "jours,";
-                    var mot_heure = "heures,";
-                    var mot_minute = "minutes,";
-                    var mot_seconde = "secondes";
+                    var et = ":";
+                    var etj = ":";
+                    var eth = ":";
+                    var mot_jour = "jrs ";
+                    var mot_heure = "hrs ";
+                    var mot_minute = "mns ";
+                    var mot_seconde = "secs";
+
 
             if (jours == 0)
                 {
                     jours = '';
                     mot_jour = '';
+                    etj='';
                 }
             else if (jours == 1)
                 {
-                    mot_jour = "jour,";
+                    mot_jour = "jr ";
                 }
 
             if (heures == 0)
                 {
                     heures = '';
                     mot_heure = '';
+                    eth='';
                 }
             else if (heures == 1)
                 {
-                    mot_heure = "heure,";
+                    mot_heure = "hr ";
                 }
 
             if (minutes == 0)
@@ -87,7 +98,7 @@
                 }
             else if (minutes == 1)
                 {
-                    mot_minute = "minute,";
+                    mot_minute = "mn ";
                 }
 
             if (secondes == 0)
@@ -98,14 +109,18 @@
                 }
             else if (secondes == 1)
                 {
-                    mot_seconde = "seconde";
+                    mot_seconde = "sc";
                 }
 
             if (minutes == 0 && heures == 0 && jours == 0)
                 {
                     et = "";
+                    eth="";
+                    etj="";
                 }
-           document.getElementById('response').innerHTML= prefixe + jours + ' ' + mot_jour + ' ' + heures + ' ' + mot_heure + ' ' + minutes + ' ' + mot_minute + ' ' + et + ' ' + secondes + ' ' + mot_seconde;
+
+           document.getElementById('response').innerHTML=jours + ' ' + etj + heures + ' '+ eth +  minutes + ' ' + et + ' ' + secondes;
+           document.getElementById('for_display_completion').innerHTML=mot_jour + ' ' + mot_heure + ' ' + mot_minute + ' ' +mot_seconde;
         }
             else
                 {
