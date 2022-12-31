@@ -1,3 +1,38 @@
+body{
+    background-color: #efefef;
+}
+h2{
+    justify-content: center;
+    text-indent: 25%;
+    text-decoration: underline;
+    color: #6da0ae;
+}
+.date-and-time-container{
+    display: flex;
+    justify-content: space-between;
+}
+.info >#send{
+    margin-top: 15px;
+    display:block;
+    justify-content: space-between;
+}
+input{
+    width: 150px;
+    height: 25px;
+    border: 2px #6da0ae solid;
+    border-radius: 15px;
+    text-indent: 15%;
+    background-color: #efefef;
+
+}
+.time-container{
+    width: 50%;
+    display: inline-block;
+
+}
+.date-container{
+    width: 50%;
+}
 .response-container{
 background-color: #94acb3;
 height: 150px;
@@ -9,4 +44,7 @@ border-radius: 10px;
     padding-top: 5px;
     padding-left: 350px; 
     font-size: 30px;
+}
+.for_display_completion{
+    word-spacing: 100px;
 }

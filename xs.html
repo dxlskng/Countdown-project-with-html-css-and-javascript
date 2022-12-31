@@ -4,30 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./response.css">
+    <link rel="stylesheet" href="./countdownstyle.css">
     <title>Compte à rebours</title>
 </head>
 <body>
     <div class="info">
-        <h2>Choisir une date et une heure</h2>
-        <label for="heure">Heure</label>
-        <input type="number" name="heure" placeholder="15" max="24" id="heure">
-        <label for="minute">Minute</label>
-        <input type="number" name="minute" placeholder="50" max="60" id="minute">
-        <label for="seconde">Secondes</label>
-        <input type="number" name="seconde" placeholder="15" max="60" id="seconde">
-        <label for="jours">Jours</label>
-        <input type="number" name="jours" placeholder="15" max="31" id="jours"> 
-        <label for="mois">Mois</label>
-        <input type="number" name="mois" placeholder="15" max="12" id="mois">
-        <label for="annee">Années</label>
-        <input type="number" name="annee" placeholder="15" max="60" id="annee" >
-        <input type="button" value="Lancer" onclick="compte_a_rebours()" id="send">   
+        <h2>Choisir une date et une heure de fin </h2>
+        <div class="date-and-time-container">
+            <div class="time-container">
+                <!-- <label for="heure">Heure</label> -->
+                <input type="number" name="heure" placeholder="Heure" max="24" id="heure">
+                <!-- <label for="minute">Minute</label> -->
+                <input type="number" name="minute" placeholder="Minute" max="60" id="minute">
+                <!-- <label for="seconde">Secondes</label> -->
+                <input type="number" name="seconde" placeholder="Secondes" max="60" id="seconde">
+            </div>
+            <div class="date-container">
+                <!-- <label for="jours">Jours</label> -->
+                <input type="number" name="jours" placeholder="jours" max="31" id="jours"> 
+                <!-- <label for="mois">Mois</label> -->
+                <input type="number" name="mois" placeholder="mois" max="12" id="mois">
+                <!-- <label for="annee">Années</label> -->
+                <input type="number" name="annee" placeholder="annee" max="60" id="annee" >
+            </div> 
+        </div>
+        <input type="button" value="Lancer" onclick="compte_a_rebours()" id="send">  
+
     </div>
     <div class="response-container">
         <div class="to_make_commond_style">
-            <p id="response">Hello Word</p>
-            <p id="for_display_completion"> This is a Countdown</p>    
+            <p id="response"></p>
+            <p id="for_display_completion"> COMPTE A REBOURS</p>    
         </div>        
     </div>
     <div id="compte_a_rebours">
