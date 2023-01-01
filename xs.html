@@ -25,7 +25,7 @@
                 <!-- <label for="mois">Mois</label> -->
                 <input type="number" name="mois" placeholder="mois" max="12" id="mois">
                 <!-- <label for="annee">Années</label> -->
-                <input type="number" name="annee" placeholder="annee" max="60" id="annee" >
+                <input type="number" name="annee" placeholder="annee"  min="2023" id="annee" >
             </div> 
         </div>
         <input type="button" value="Lancer" onclick="compte_a_rebours()" id="send">  
@@ -33,6 +33,7 @@
     </div>
     <div class="response-container">
         <div class="to_make_commond_style">
+            <p id="countdown_end"></p>
             <p id="response"></p>
             <p id="for_display_completion"> COMPTE A REBOURS</p>    
         </div>        
@@ -57,7 +58,7 @@
             if (total_secondes < 0)
                 {
                     prefixe = " Terminé :-";
-                    total_secondes = Math.abs(total_secondes); // On ne garde que la valeur absolue
+                    total_secondes = Math.abs(total_secondes); 
                 }
 
             if (total_secondes > 0)
@@ -131,10 +132,9 @@
         }
             else
                 {
-                    compte_a_rebours.innerHTML = 'Compte à rebours terminé.';
+                    document.getElementById('countdown_end').innerHTML = 'Compte à rebourd terminé';
 
                 }
-
             setTimeout("compte_a_rebours();", 1000);
         }
 </script>
