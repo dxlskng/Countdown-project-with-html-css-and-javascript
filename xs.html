@@ -12,19 +12,13 @@
         <h2>Choisir une date et une heure de fin </h2>
         <div class="date-and-time-container">
             <div class="time-container">
-                <!-- <label for="heure">Heure</label> -->
                 <input type="number" name="heure" placeholder="Heure" max="24" id="heure">
-                <!-- <label for="minute">Minute</label> -->
                 <input type="number" name="minute" placeholder="Minute" max="60" id="minute">
-                <!-- <label for="seconde">Secondes</label> -->
                 <input type="number" name="seconde" placeholder="Secondes" max="60" id="seconde">
             </div>
             <div class="date-container">
-                <!-- <label for="jours">Jours</label> -->
                 <input type="number" name="jours" placeholder="jours" max="31" id="jours"> 
-                <!-- <label for="mois">Mois</label> -->
                 <input type="number" name="mois" placeholder="mois" max="12" id="mois">
-                <!-- <label for="annee">Années</label> -->
                 <input type="number" name="annee" placeholder="annee"  min="2023" id="annee" >
             </div> 
         </div>
@@ -55,11 +49,6 @@
             var date_actuelle = new Date();
             var date_evenement = new Date(annee,mois-1,jours,heure,minute,seconde,0);
             var total_secondes = (date_evenement - date_actuelle) /1000;
-            if (total_secondes < 0)
-                {
-                    prefixe = " Terminé :-";
-                    total_secondes = Math.abs(total_secondes); 
-                }
 
             if (total_secondes > 0)
                 {
@@ -77,65 +66,65 @@
                     var mot_seconde = "secs";
 
 
-            if (jours == 0)
-                {
-                    jours = '';
-                    mot_jour = '';
-                    etj='';
-                }
-            else if (jours == 1)
-                {
-                    mot_jour = "jr ";
-                }
+                        if (jours == 0)
+                            {
+                                jours = '';
+                                mot_jour = '';
+                                etj='';
+                            }
+                        else if (jours == 1)
+                            {
+                                mot_jour = "jr ";
+                            }
 
-            if (heures == 0)
-                {
-                    heures = '';
-                    mot_heure = '';
-                    eth='';
-                }
-            else if (heures == 1)
-                {
-                    mot_heure = "hr ";
-                }
+                        if (heures == 0)
+                            {
+                                heures = '';
+                                mot_heure = '';
+                                eth='';
+                            }
+                        else if (heures == 1)
+                            {
+                                mot_heure = "hr ";
+                            }
 
-            if (minutes == 0)
-                {
-                    minutes = '';
-                    mot_minute = '';
-                }
-            else if (minutes == 1)
-                {
-                    mot_minute = "mn ";
-                }
+                        if (minutes == 0)
+                            {
+                                minutes = '';
+                                mot_minute = '';
+                            }
+                        else if (minutes == 1)
+                            {
+                                mot_minute = "mn ";
+                            }
 
-            if (secondes == 0)
-                {
-                    secondes = '';
-                    mot_seconde = '';
-                    et = '';
-                }
-            else if (secondes == 1)
-                {
-                    mot_seconde = "sc";
-                }
+                        if (secondes == 0)
+                            {
+                                secondes = '';
+                                mot_seconde = '';
+                                et = '';
+                            }
+                        else if (secondes == 1)
+                            {
+                                mot_seconde = "sc";
+                            }
 
-            if (minutes == 0 && heures == 0 && jours == 0)
-                {
-                    et = "";
-                    eth="";
-                    etj="";
-                }
+                        if (minutes == 0 && heures == 0 && jours == 0)
+                            {
+                                et = "";
+                                eth="";
+                                etj="";
+                            }
 
            document.getElementById('response').innerHTML=jours + ' ' + etj + heures + ' '+ eth +  minutes + ' ' + et + ' ' + secondes;
-           document.getElementById('for_display_completion').innerHTML=mot_jour + ' ' + mot_heure + ' ' + mot_minute + ' ' +mot_seconde;
+           document.getElementById('for_display_completion').innerHTML=mot_jour + ' ' + mot_heure + ' ' + mot_minute + ' ' +mot_seconde;   
+           setTimeout("compte_a_rebours();", 1000);
         }
-            else
+        if (total_secondes < 0)
                 {
-                    document.getElementById('countdown_end').innerHTML = 'Compte à rebourd terminé';
-
+                   document.getElementById('response').innerHTML="Compte à rebourd terminé";      
                 }
-            setTimeout("compte_a_rebours();", 1000);
+           
         }
 </script>
 </body>

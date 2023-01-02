@@ -45,7 +45,9 @@ border-radius: 10px;
     padding-left: 350px; 
     font-size: 30px;
 }
-#response, #for_display_completion{
-    word-spacing: 15px;
+#response{
+    word-spacing: 20px;
 }
-/* il reste à mettre de l'espace entre les mots du compte à rebours et centrer le bouton lancer */
+#for_display_completion{
+    word-spacing: 20px;
+}
